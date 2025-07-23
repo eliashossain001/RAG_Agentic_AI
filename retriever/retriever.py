@@ -1,18 +1,19 @@
 import faiss
-import pickle
+import os
 from models.text_embedding import get_embedding
 
-INDEX_PATH = "vector_db/faiss_index.bin"
-DOCS_PATH = "vector_db/docs.pkl"
+# Correct path to saved FAISS index
+INDEX_PATH = os.path.join(os.path.dirname(__file__), "../vector_db/knowledge_base.index")
 
 def retrieve_top_k(query, k=3):
-    # Load FAISS index and documents
+    # Load index
     index = faiss.read_index(INDEX_PATH)
-    with open(DOCS_PATH, "rb") as f:
-        documents = pickle.load(f)
 
-    query_vector = get_embedding(query).numpy().reshape(1, -1)
+    # Get embedding of the query
+    query_vector = get_embedding(query).cpu().numpy().reshape(1, -1)
+
+    # Search FAISS index
     distances, indices = index.search(query_vector, k)
 
-    top_docs = [documents[i] for i in indices[0]]
-    return top_docs
+    # Return dummy results (you can later map `indices` to actual docs)
+    return [f"Retrieved doc #{i} (distance: {dist:.2f})" for i, dist in zip(indices[0], distances[0])]

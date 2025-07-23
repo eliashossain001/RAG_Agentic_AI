@@ -1,26 +1,30 @@
-import os
 import faiss
-import pickle
+import numpy as np
+import os
 from models.text_embedding import get_embedding
 
-INDEX_PATH = "vector_db/faiss_index.bin"
-DOCS_PATH = "vector_db/docs.pkl"
+# Define the path to save the FAISS index
+INDEX_DIR = os.path.dirname(__file__)
+INDEX_PATH = os.path.join(INDEX_DIR, "knowledge_base.index")
 
 def initialize_vector_db(documents):
-    # Create FAISS index
-    dimension = 384  # for MiniLM-L6-v2
-    index = faiss.IndexFlatL2(dimension)
-    vectors = []
-    
-    for doc in documents:
-        embedding = get_embedding(doc)
-        vectors.append(embedding)
+    print("[INFO] Initializing FAISS vector DB with embeddings...")
 
-    index.add_batch([v.numpy() for v in vectors])
+    try:
+        # Get embeddings for all documents
+        vectors = [get_embedding(doc).cpu().numpy() for doc in documents]
 
-    # Save index and docs
-    faiss.write_index(index, INDEX_PATH)
-    with open(DOCS_PATH, "wb") as f:
-        pickle.dump(documents, f)
+        # Create FAISS index
+        dim = vectors[0].shape[0]
+        index = faiss.IndexFlatL2(dim)
+        index.add(np.array(vectors))  # ✅ Correct method
 
-    print(f"[VectorDB] Index initialized with {len(documents)} documents")
+        # Ensure the directory exists
+        os.makedirs(INDEX_DIR, exist_ok=True)
+
+        # Save the index
+        faiss.write_index(index, INDEX_PATH)
+        print(f"[SUCCESS] FAISS index built and saved to: {INDEX_PATH}")
+
+    except Exception as e:
+        print(f"[ERROR] Failed to initialize vector DB: {e}")

@@ -1,83 +1,72 @@
-# ─────────────────────────────────────────────
-# Python artifacts
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*$py.class
+*.so
+*.dll
+*.dylib
+*.pyd
 
-# Environment files
+# Virtual environments
+venv/
 .env
-*.env
+.env.*
 
-# VSCode project settings
-.vscode/
-*.code-workspace
-
-# System/macOS-specific files
-.DS_Store
-Thumbs.db
-
-# Log files
+# Logs and debug
 *.log
 
-# Database
-*.db
+# Database files
 *.sqlite3
-patient_reports.db
+*.db
 
-# Uploaded files (dynamic test/input data)
-data/uploads/
-data/*.pdf
-data/*.jpg
-data/*.jpeg
-data/*.png
-data/*.mp4
-data/*.wav
+# VSCode settings
+.vscode/
 
-# Vector/Embedding cache
-vector_store/
-faiss_index/
-chroma_db/
-*.bin
-*.h5
-*.pt
-*.pth
-
-# HuggingFace and Transformers cache
-~/.cache/
-~/.huggingface/
-
-# Model & LLM output cache
-models/__pycache__/
-checkpoints/
-*.ckpt
-
-# Jupyter artifacts
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Streamlit
-.streamlit/
-.streamlit/config.toml
-
-# Conda/Virtual Envs
-env/
-.venv/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# PyInstaller
-*.manifest
-*.spec
+# Python egg metadata
+*.egg-info/
 dist/
 build/
+.eggs/
 
-# Test, coverage, and tox
-.tox/
-.nox/
-.coverage
-coverage.xml
-htmlcov/
-pytest_cache/
-.cache
-nosetests.xml
+# Compiled files and outputs
+*.out
+*.class
+
+# macOS / Windows files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Model files and embeddings
+*.pt
+*.pth
+*.h5
+*.joblib
+*.npz
+*.npy
+
+# FAISS / Vector DB index files
+*.index
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Uploaded data
+data/uploads/
+data/knowledge_base/*.pdf
+uploads/
+
+# Ignore patient reports DB
+patient_reports.db
+
+# Ignore vector DB content
+vector_db/*
+
+# Ignore any temporary files
+*.tmp
+*.bak
+*.swp
