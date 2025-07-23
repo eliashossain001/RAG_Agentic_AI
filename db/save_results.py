@@ -2,7 +2,7 @@ import sqlite3
 
 DB_PATH = "patient_reports.db"
 
-def save_patient_report(patient_id: str, diagnosis: str, risk: str, recommendations: str, pdf_summary: str):
+def save_patient_report(patient_id: str, diagnosis: str, risk: str, recommendations: str, pdf_summary: str, guideline_summary: str):
     try:
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
@@ -14,14 +14,15 @@ def save_patient_report(patient_id: str, diagnosis: str, risk: str, recommendati
                 diagnosis TEXT,
                 risk_prediction TEXT,
                 recommendations TEXT,
-                pdf_summary TEXT
+                pdf_summary TEXT,
+                guideline_summary TEXT
             )
         """)
 
         cursor.execute("""
-            INSERT INTO reports (patient_id, diagnosis, risk_prediction, recommendations, pdf_summary)
-            VALUES (?, ?, ?, ?, ?)
-        """, (patient_id, diagnosis, risk, recommendations, pdf_summary))
+            INSERT INTO reports (patient_id, diagnosis, risk_prediction, recommendations, pdf_summary, guideline_summary)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (patient_id, diagnosis, risk, recommendations, pdf_summary, guideline_summary))
 
         conn.commit()
         conn.close()

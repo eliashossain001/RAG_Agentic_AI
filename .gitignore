@@ -8,8 +8,11 @@ __pycache__/
 
 # Virtual environments
 venv/
+
+# Do NOT push env or secrets
 .env
 .env.*
+streamlit_app/.env
 
 # Logs and debug
 *.log
@@ -55,10 +58,10 @@ Desktop.ini
 # Streamlit secrets
 .streamlit/secrets.toml
 
-# Uploaded data
-data/uploads/
-data/knowledge_base/*.pdf
-uploads/
+# Keep everything in data/
+# (previously excluded these — now they are kept)
+# data/uploads/
+# data/knowledge_base/*.pdf
 
 # Ignore patient reports DB
 patient_reports.db

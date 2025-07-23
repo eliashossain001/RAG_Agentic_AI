@@ -55,11 +55,18 @@ if st.button("🩺 Run Diagnosis & Generate Report"):
             if response.status_code == 200:
                 result = response.json()
                 st.success("✅ Report Generated Successfully")
-                st.subheader("🩻 Diagnosis")
+
+                st.subheader("🩻 Diagnosis (by DiagnosisAgent)")
                 st.write(result["diagnosis"])
-                st.subheader("⚠️ Risk Prediction")
+
+                st.subheader("⚠️ Risk Prediction (by RiskPredictionAgent)")
                 st.write(result["risk_prediction"])
-                st.subheader("📝 Recommendations")
+
+                st.subheader("💡 Recommendations (by RecommendationAgent)")
                 st.write(result["recommendations"])
+
+                st.subheader("📘 Guidelines Summary (by GuidelinesAdvisorAgent)")
+                st.write(result["guidelines"])
+
             else:
                 st.error(f"API Error: {response.text}")
