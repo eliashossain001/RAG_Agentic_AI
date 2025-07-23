@@ -1,0 +1,83 @@
+# ─────────────────────────────────────────────
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+*.env
+
+# VSCode project settings
+.vscode/
+*.code-workspace
+
+# System/macOS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Database
+*.db
+*.sqlite3
+patient_reports.db
+
+# Uploaded files (dynamic test/input data)
+data/uploads/
+data/*.pdf
+data/*.jpg
+data/*.jpeg
+data/*.png
+data/*.mp4
+data/*.wav
+
+# Vector/Embedding cache
+vector_store/
+faiss_index/
+chroma_db/
+*.bin
+*.h5
+*.pt
+*.pth
+
+# HuggingFace and Transformers cache
+~/.cache/
+~/.huggingface/
+
+# Model & LLM output cache
+models/__pycache__/
+checkpoints/
+*.ckpt
+
+# Jupyter artifacts
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/
+.streamlit/config.toml
+
+# Conda/Virtual Envs
+env/
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyInstaller
+*.manifest
+*.spec
+dist/
+build/
+
+# Test, coverage, and tox
+.tox/
+.nox/
+.coverage
+coverage.xml
+htmlcov/
+pytest_cache/
+.cache
+nosetests.xml

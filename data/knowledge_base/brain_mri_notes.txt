@@ -1,0 +1,8 @@
+MRI findings in patients with anxiety disorders have shown variable patterns, including:
+
+- **Amygdala**: Often hyperactive during emotional stimuli, indicating heightened fear responses.
+- **Hippocampus**: May appear reduced in volume in chronic anxiety cases, especially PTSD.
+- **Prefrontal Cortex**: Hypoactivity may impair top-down regulation of emotional responses.
+- **Anterior Cingulate Cortex (ACC)**: Associated with cognitive control and emotional regulation deficits.
+
+These imaging findings support the neurobiological underpinnings of anxiety and may assist in future biomarker-based diagnosis. However, MRI should be used in conjunction with clinical assessments, not as a standalone diagnostic tool.
