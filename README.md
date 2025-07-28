@@ -181,10 +181,12 @@ GEMINI_API_KEY=your_key_here
 
 ---
 
-## 👨‍⚕️ Credits
+## 👨‍💼 Author
 
-Developed by [Elias Hossain](https://github.com/YOUR_USERNAME)  
-Affiliation: Mississippi State University / UCF  
+**Elias Hossain**  
+_Machine Learning Researcher | PhD Student | AI x Reasoning Enthusiast_
+
+[![GitHub](https://img.shields.io/badge/GitHub-EliasHossain001-blue?logo=github)](https://github.com/EliasHossain001)
 
 ---
 
